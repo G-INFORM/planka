@@ -18,6 +18,11 @@
     text-align: left;
     transition: background 0.3s ease;
     vertical-align: top;
+
+    &_alert {
+      background: #efbcbc;
+      color: #a60a1b;
+    }
   }
 
   .wrapperHoverable:hover {
@@ -30,7 +35,7 @@
   .wrapperTiny {
     font-size: 12px;
     line-height: 20px;
-    padding: 0px 6px;
+    padding: 0 6px;
   }
 
   .wrapperSmall {

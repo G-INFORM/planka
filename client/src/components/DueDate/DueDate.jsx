@@ -34,6 +34,7 @@ const DueDate = React.memo(({ value, size, isDisabled, onClick }) => {
     LONG_DATE_FORMAT_BY_SIZE[size],
     FULL_DATE_FORMAT_BY_SIZE[size],
   );
+  const isAlert = value < new Date();
 
   const contentNode = (
     <span
@@ -41,6 +42,7 @@ const DueDate = React.memo(({ value, size, isDisabled, onClick }) => {
         styles.wrapper,
         styles[`wrapper${upperFirst(size)}`],
         onClick && styles.wrapperHoverable,
+        isAlert && styles.wrapper_alert,
       )}
     >
       {t(`format:${dateFormat}`, {
