@@ -31,7 +31,8 @@ module.exports.custom = {
   attachmentsPath: path.join(sails.config.appPath, 'private', 'attachments'),
   attachmentsUrl: `${process.env.BASE_URL}/attachments`,
 
-  defaultAdminEmail: process.env.DEFAULT_ADMIN_EMAIL,
+  defaultAdminEmail:
+    process.env.DEFAULT_ADMIN_EMAIL && process.env.DEFAULT_ADMIN_EMAIL.toLowerCase(),
 
   oidcIssuer: process.env.OIDC_ISSUER,
   oidcClientId: process.env.OIDC_CLIENT_ID,
@@ -50,4 +51,15 @@ module.exports.custom = {
   oidcRedirectUri: `${
     sails.config.environment === 'production' ? process.env.BASE_URL : 'http://localhost:3000'
   }/oidc-callback`,
+
+  smtpHost: process.env.SMTP_HOST,
+  smtpPort: process.env.SMTP_PORT || 587,
+  smtpName: process.env.SMTP_NAME,
+  smtpSecure: process.env.SMTP_SECURE === 'true',
+  smtpUser: process.env.SMTP_USER,
+  smtpPassword: process.env.SMTP_PASSWORD,
+  smtpFrom: process.env.SMTP_FROM,
+
+  slackBotToken: process.env.SLACK_BOT_TOKEN,
+  slackChannelId: process.env.SLACK_CHANNEL_ID,
 };
